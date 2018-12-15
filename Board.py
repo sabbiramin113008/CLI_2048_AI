@@ -15,13 +15,6 @@ class CheckerBoard:
         self.boards = boards
         self.template_board = template_board
 
-    def cell_space(self, cell_value):
-        if len(cell_value) < 4:
-            return " {}".format(cell_value)
-        if len(cell_value) < 3:
-            return "{} ".format(cell_value)
-        if len(cell_value) < 2:
-            return " {}".format(cell_value)
 
     def print_board(self, final_score=None):
         for row in range(0, 4):
@@ -30,11 +23,11 @@ class CheckerBoard:
                 if self.boards[row][column] == 0:
                     cell_print = "    "
                 else:
-                    cell_print = str(self.boards[row][column]).center(4, fillchar=" ")
+                    cell_print = str(self.boards[row][column]).center(4)
                 if column == 3:
                     row_printer = "{}{}".format(row_printer, cell_print)
                 else:
                     row_printer = "{}{}{}".format(row_printer, cell_print, "|")
             print(row_printer)
             if row < 3:
-                print("--------------------------------------")
+                print("--------------------")
