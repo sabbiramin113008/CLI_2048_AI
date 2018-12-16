@@ -103,6 +103,13 @@ def board_move_up(boards):
     return row_boards
 
 
+def board_move_down(boards):
+    col_boards = convert_to_columns(boards)
+    down_movement = board_move_right(col_boards)
+    row_boards = convert_to_boards(down_movement)
+    return row_boards
+
+
 def print_board(boards):
     print("-------2048-----------\n")
     print("----------------------------")
@@ -128,9 +135,11 @@ def print_board(boards):
 # col_boards = (convert_to_columns(board))
 # print(convert_to_boards(col_boards))
 
-board_up = board_move_up(board)
-print (board_up)
-print_board(board_up)
+# board_up = board_move_up(board)
+# print(board_up)
+# print_board(board_up)
+
+print_board(board_move_down(board))
 
 # print(board_move_left(board))
 # print (board_move_right(board))
