@@ -10,7 +10,7 @@ import pprint
 board = [
     [2, 0, 0, 2],
     [4, 4, 8, 8],
-    [0, 0, 0, 0],
+    [0, 4, 0, 0],
     [0, 0, 2, 4]
 ]
 row_one = [2, 0, 0, 2]
@@ -46,7 +46,7 @@ def populate_right_move(row):
     length = len(row)
     req_length = 4 - length
     for this in range(0, req_length):
-        row.insert(0,0)
+        row.insert(0, 0)
     return row
 
 
@@ -78,9 +78,36 @@ def board_move_right(boards):
     return [move_right(row) for row in boards]
 
 
+def convert_to_columns(boards):
+    return [
+        [boards[x][0] for x in range(0, 4)],
+        [boards[x][1] for x in range(0, 4)],
+        [boards[x][2] for x in range(0, 4)],
+        [boards[x][3] for x in range(0, 4)]
+    ]
+
+
+def convert_to_boards(boards):
+    return [
+        [boards[x][0] for x in range(0, 4)],
+        [boards[x][1] for x in range(0, 4)],
+        [boards[x][2] for x in range(0, 4)],
+        [boards[x][3] for x in range(0, 4)]
+    ]
+
+
+def board_move_up(boards):
+    col_boards = convert_to_columns(boards)
+
+
+col_boards = (convert_to_columns(board))
+print(convert_to_boards(col_boards))
+
+
+
 # print(board_move_left(board))
-print (board_move_right(board))
+# print (board_move_right(board))
 
 #
 # print(move_left(row_three))
-print(move_right(row_four))
+# print(move_right(row_four))
