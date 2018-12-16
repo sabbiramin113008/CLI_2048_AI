@@ -21,16 +21,12 @@ row_four = [256, 256, 256, 256]
 
 def left_temp_var(pos, pos_minus):
     if pos > 0 and pos_minus == 0:
-        # print("Logic 1")
         return pos, 0
     elif pos == 0 and pos_minus > 0:
-        # print("Logic 2")
         return pos_minus, 0
     elif pos == pos_minus:
-        # print("Logic 3")
         return pos + pos_minus, 0
     elif pos != pos_minus:
-        # print("Logic 4")
         return pos_minus, pos
 
 
