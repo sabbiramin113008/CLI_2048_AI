@@ -5,7 +5,7 @@ data: 12/16/2018
 email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 
 """
-import pprint
+import random
 
 board = [
     [2, 0, 0, 2],
@@ -128,8 +128,46 @@ def print_board(boards):
     print("----------------------------")
 
 
-def find_null_cell(boards):
-    return [[x, y] for x, y in range(0, 4) if boards[x][y] == 0]
+def find_null_cells(boards):
+    return [(x, y) for x in range(0, 4) for y in range(0, 4) if boards[x][y] == 0]
+
+
+def choose_position(null_cells):
+    start = 0
+    finish = len(null_cells)
+    if finish == 0:
+        return 0, -1
+    else:
+        return 1, random.randint(start, finish)
+
+
+def generator_seed():
+    if random.randint(0, 10) == 0:
+        return 4
+    else:
+        return 2
+
+
+def populate_board(boards):
+    null_cells = find_null_cells(boards)
+    if len(null_cells):
+        status, pos = choose_position(null_cells)
+        seed = generator_seed()
+        x, y = null_cells[pos]
+        boards[x][y] = seed
+        return 1, boards
+    else:
+        return 0, 0
+
+print (populate_board(board))
+
+
+
+# print(find_null_cells(board))
+# x, y = (find_null_cells(board)[0])
+# print(x, y)
+
+
 
 
 # col_boards = (convert_to_columns(board))
@@ -139,7 +177,7 @@ def find_null_cell(boards):
 # print(board_up)
 # print_board(board_up)
 
-print_board(board_move_down(board))
+# print_board(board_move_down(board))
 
 # print(board_move_left(board))
 # print (board_move_right(board))
