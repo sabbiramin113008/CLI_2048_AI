@@ -128,6 +128,10 @@ def print_board(boards):
     print("----------------------------")
 
 
+def find_null_cell(boards):
+    return [[x, y] for x, y in range(0, 4) if boards[x][y] == 0]
+
+
 # col_boards = (convert_to_columns(board))
 # print(convert_to_boards(col_boards))
 
