@@ -34,11 +34,19 @@ def left_temp_var(pos, pos_minus):
         return pos_minus, pos
 
 
-def populate_with_zero(row):
+def populate_left_move(row):
     length = len(row)
     req_length = 4 - length
     for this in range(0, req_length):
         row.append(0)
+    return row
+
+
+def populate_right_move(row):
+    length = len(row)
+    req_length = 4 - length
+    for this in range(0, req_length):
+        row.insert(0,0)
     return row
 
 
@@ -48,14 +56,18 @@ def move_left(row):
         row[pos - 1] = temp
         row[pos] = temp_minus
     null_row = [cell for cell in row if cell is not 0]
-    final_row = populate_with_zero(null_row)
+    final_row = populate_left_move(null_row)
     return (final_row)
 
 
 def move_right(row):
-    reverse_row = row[::-1]
-    reverse_right = move_left(reverse_row)
-    return reverse_right[::-1]
+    for pos in range(3, 0, -1):
+        temp, temp_minus = left_temp_var(row[pos], row[pos - 1])
+        row[pos - 1] = temp
+        row[pos] = temp_minus
+    null_row = [cell for cell in row if cell is not 0]
+    final_row = populate_right_move(null_row)
+    return final_row
 
 
 def board_move_left(boards):
@@ -71,4 +83,4 @@ print (board_move_right(board))
 
 #
 # print(move_left(row_three))
-# print(move_right(row_four))
+print(move_right(row_four))
