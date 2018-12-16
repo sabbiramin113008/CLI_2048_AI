@@ -58,5 +58,17 @@ def move_right(row):
     return reverse_right[::-1]
 
 
-print(move_left(row_three))
-print(move_right(row_four))
+def board_move_left(boards):
+    return [move_left(row) for row in boards]
+
+
+def board_move_right(boards):
+    return [move_right(row) for row in boards]
+
+
+# print(board_move_left(board))
+print (board_move_right(board))
+
+#
+# print(move_left(row_three))
+# print(move_right(row_four))
