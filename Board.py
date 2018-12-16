@@ -19,13 +19,13 @@ class CheckerBoard:
         print("-------2048-----------\n")
         print("----------------------------")
         for row in range(0, 4):
-            print ("|      |      |      |      |")
+            print("|      |      |      |      |")
             row_printer = ' '
             for column in range(0, 4):
-                if self.boards[row][column] == 0:
-                    cell_print = "      "
-                else:
-                    cell_print = str(self.boards[row][column]).center(6)
+                # if self.boards[row][column] == 0:
+                #     cell_print = "      "
+                # else:
+                cell_print = str(self.boards[row][column]).center(6)
                 if column == 3:
                     row_printer = "{}{}|".format(row_printer, cell_print)
                 else:
@@ -35,4 +35,3 @@ class CheckerBoard:
             if row < 3:
                 print("----------------------------")
         print("----------------------------")
-

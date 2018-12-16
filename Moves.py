@@ -98,12 +98,39 @@ def convert_to_boards(boards):
 
 def board_move_up(boards):
     col_boards = convert_to_columns(boards)
+    up_movement = board_move_left(col_boards)
+    row_boards = convert_to_boards(up_movement)
+    return row_boards
 
 
-col_boards = (convert_to_columns(board))
-print(convert_to_boards(col_boards))
+def print_board(boards):
+    print("-------2048-----------\n")
+    print("----------------------------")
+    for row in range(0, 4):
+        print("|      |      |      |      |")
+        row_printer = ' '
+        for column in range(0, 4):
+            # if self.boards[row][column] == 0:
+            #     cell_print = "      "
+            # else:
+            cell_print = str(boards[row][column]).center(6)
+            if column == 3:
+                row_printer = "{}{}|".format(row_printer, cell_print)
+            else:
+                row_printer = "{}{}{}".format(row_printer, cell_print, "|")
+        print(row_printer)
+        print("|      |      |      |      |")
+        if row < 3:
+            print("----------------------------")
+    print("----------------------------")
 
 
+# col_boards = (convert_to_columns(board))
+# print(convert_to_boards(col_boards))
+
+board_up = board_move_up(board)
+print (board_up)
+print_board(board_up)
 
 # print(board_move_left(board))
 # print (board_move_right(board))
