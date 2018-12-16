@@ -13,24 +13,24 @@ board = [
     [0, 0, 0, 0],
     [0, 0, 2, 4]
 ]
-one = [2, 0, 0, 2]
-two = [4, 4, 8, 8]
-three = [0, 0, 0, 0]
-four = [256,256, 256, 256]
+row_one = [2, 0, 0, 2]
+row_two = [4, 4, 8, 8]
+row_three = [0, 0, 0, 0]
+row_four = [256, 256, 256, 256]
 
 
 def left_temp_var(pos, pos_minus):
     if pos > 0 and pos_minus == 0:
-        print("Logic 1")
+        # print("Logic 1")
         return pos, 0
     elif pos == 0 and pos_minus > 0:
-        print("Logic 2")
+        # print("Logic 2")
         return pos_minus, 0
     elif pos == pos_minus:
-        print("Logic 3")
+        # print("Logic 3")
         return pos + pos_minus, 0
     elif pos != pos_minus:
-        print("Logic 4")
+        # print("Logic 4")
         return pos_minus, pos
 
 
@@ -52,4 +52,11 @@ def move_left(row):
     return (final_row)
 
 
-print(move_left(four))
+def move_right(row):
+    reverse_row = row[::-1]
+    reverse_right = move_left(reverse_row)
+    return reverse_right[::-1]
+
+
+print(move_left(row_three))
+print(move_right(row_four))
