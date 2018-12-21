@@ -159,7 +159,7 @@ def populate_board(boards):
     else:
         return 0, 0
 
-print (populate_board(board))
+# print (populate_board(board))
 
 
 

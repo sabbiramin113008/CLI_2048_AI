@@ -8,4 +8,5 @@ email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 
 import random
 
-print (random.randint(0,9))
+while (input() != 'q'):
+    print(random.randint(0, 9))
