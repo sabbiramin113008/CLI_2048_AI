@@ -27,19 +27,31 @@ if __name__ == "__main__":
                 key_press = input()
                 if key_press == 'u':
                     u_board = board_move_up(temp)
-                    temp = populate_board(u_board)[1]
-                    print_board(temp)
+                    u_flag, temp = populate_board(u_board)
+                    if u_flag:
+                        print_board(temp)
+                    else:
+                        print_board(u_board)
                 elif key_press == 'd':
                     d_board = board_move_down(temp)
-                    temp = populate_board(d_board)[1]
-                    print_board(temp)
+                    d_flag, temp = populate_board(d_board)
+                    if d_flag:
+                        print_board(temp)
+                    else:
+                        print_board(d_board)
                 elif key_press == 'l':
                     l_board = board_move_left(temp)
-                    temp = populate_board(l_board)[1]
-                    print_board(temp)
+                    l_flag, temp = populate_board(l_board)
+                    if l_flag:
+                        print_board(temp)
+                    else:
+                        print_board(l_board)
                 elif key_press == 'r':
-                    isValid, r_board = board_move_right(temp)
-                    temp = populate_board(r_board)[1]
-                    print_board(temp)
+                    r_board = board_move_right(temp)
+                    r_flag, temp = populate_board(r_board)
+                    if r_flag:
+                        print_board(temp)
+                    else:
+                        print_board(r_board)
                 else:
                     pass
