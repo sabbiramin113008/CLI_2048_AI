@@ -13,16 +13,16 @@ from Moves import *
 #     print(random.randint(0, 9))
 
 boards = [
-    [0,0, 0, 0],
+    [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0]
 ]
 temp = boards
-for i in range(0,20):
+for i in range(0, 20):
     status, score = (populate_board(temp))
     if status:
-        print(score)
         temp = score
+        print(score)
     else:
         print("Error")

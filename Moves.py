@@ -168,7 +168,7 @@ def populate_board(boards):
             print("POS: {}".format(pos))
             seed = generator_seed()
             print("seed: {}".format(seed))
-            print("null_cell: {}".format(null_cells[pos]))
+            print("Selected Null Cell: {}".format(null_cells[pos]))
             x, y = null_cells[pos]
             boards[x][y] = seed
             return 1, boards
