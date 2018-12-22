@@ -144,15 +144,17 @@ def find_null_cells(boards):
 
 def choose_position(null_cells):
     start = 0
-    finish = len(null_cells)-1
+    finish = len(null_cells) - 1
     if finish == 0:
-        return 0, -1
+        return 1, 0
+    elif finish < 0:
+        return 0, 0
     else:
         return 1, int(random.randint(start, finish))
 
 
 def generator_seed():
-    if random.randint(0, 10) == 0:
+    if random.randint(0, 10) == 4:
         return 4
     else:
         return 2
@@ -160,11 +162,12 @@ def generator_seed():
 
 def populate_board(boards):
     null_cells = find_null_cells(boards)
-    print ("Pre Board: {}".format(boards))
+    print("Pre Board: {}".format(boards))
+    print("Null Cells are in: {}".format(null_cells))
     print("Number of Null Cells: {}".format(len(null_cells)))
     if len(null_cells):
         status, pos = choose_position(null_cells)
-        if pos:
+        if status:
             print("POS: {}".format(pos))
             seed = generator_seed()
             print("seed: {}".format(seed))

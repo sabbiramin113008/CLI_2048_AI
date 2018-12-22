@@ -21,6 +21,7 @@ boards = [
 temp = boards
 for i in range(0, 20):
     status, score = (populate_board(temp))
+    print ("Status: {}".format(status))
     if status:
         temp = score
         print("POST Board: {}".format(score))
