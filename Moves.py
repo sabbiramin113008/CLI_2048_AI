@@ -5,6 +5,9 @@ data: 12/16/2018
 email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 
 """
+import os
+import csv
+import codecs
 import random
 
 board = [
@@ -129,7 +132,14 @@ def print_board(boards):
 
 
 def find_null_cells(boards):
-    return [(x, y) for x in range(0, 4) for y in range(0, 4) if boards[x][y] == 0]
+    null_cells = []
+    for x in range(0, 4):
+        for y in range(0, 4):
+            if boards[x][y] != 0:
+                pass
+            else:
+                null_cells.append((x, y))
+    return null_cells
 
 
 def choose_position(null_cells):
@@ -138,7 +148,7 @@ def choose_position(null_cells):
     if finish == 0:
         return 0, -1
     else:
-        return 1, random.randint(start, finish)
+        return 1, int(random.randint(start, finish))
 
 
 def generator_seed():
@@ -150,14 +160,44 @@ def generator_seed():
 
 def populate_board(boards):
     null_cells = find_null_cells(boards)
+    print(len(null_cells))
+    print(null_cells)
     if len(null_cells):
         status, pos = choose_position(null_cells)
-        seed = generator_seed()
-        x, y = null_cells[pos]
-        boards[x][y] = seed
-        return 1, boards
+        if pos:
+            print("POS: {}".format(pos))
+            seed = generator_seed()
+            print("seed: {}".format(seed))
+            print("null_cell: {}".format(null_cells[pos]))
+            x, y = null_cells[pos]
+            boards[x][y] = seed
+            return 1, boards
     else:
         return 0, 0
+
+
+def record_moves(file_name, boards, move):
+    file_path = "train/{}.csv".format(file_name)
+    cell_list = []
+    for x in range(0, 4):
+        for y in range(0, 4):
+            cell_list.append(boards[x][y])
+    cell_list.append(move)
+    cell_list = [str(cell) for cell in cell_list]
+    try:
+        with codecs.open(file_path, "a", encoding="utf-8") as file_writer:
+            row = ",".join(cell_list)
+            row = "{}\n".format(row)
+            file_writer.write(row)
+
+    except FileNotFoundError:
+        pass
+
+#
+# file_name = "sabbir"
+# move = "r"
+# record_moves(file_name, board, move)
+
 
 # print (populate_board(board))
 

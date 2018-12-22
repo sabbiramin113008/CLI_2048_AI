@@ -7,6 +7,22 @@ email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 """
 
 import random
+from Moves import *
 
-while (input() != 'q'):
-    print(random.randint(0, 9))
+# while (input() != 'q'):
+#     print(random.randint(0, 9))
+
+boards = [
+    [0,0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+]
+temp = boards
+for i in range(0,20):
+    status, score = (populate_board(temp))
+    if status:
+        print(score)
+        temp = score
+    else:
+        print("Error")
