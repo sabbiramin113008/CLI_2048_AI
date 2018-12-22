@@ -23,6 +23,6 @@ for i in range(0, 20):
     status, score = (populate_board(temp))
     if status:
         temp = score
-        print(score)
+        print("POST Board: {}".format(score))
     else:
         print("Error")

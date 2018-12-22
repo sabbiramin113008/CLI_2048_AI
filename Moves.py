@@ -144,7 +144,7 @@ def find_null_cells(boards):
 
 def choose_position(null_cells):
     start = 0
-    finish = len(null_cells)
+    finish = len(null_cells)-1
     if finish == 0:
         return 0, -1
     else:
@@ -160,8 +160,8 @@ def generator_seed():
 
 def populate_board(boards):
     null_cells = find_null_cells(boards)
-    print(len(null_cells))
-    print(null_cells)
+    print ("Pre Board: {}".format(boards))
+    print("Number of Null Cells: {}".format(len(null_cells)))
     if len(null_cells):
         status, pos = choose_position(null_cells)
         if pos:
