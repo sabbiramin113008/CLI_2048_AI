@@ -1,5 +1,5 @@
-## cli-2048 
-    CLI_2048 is a famous 2048 gaming interface from 
+## CLI_2048_AI 
+    CLI_2048_AI is a famous 2048 gaming interface from 
     Command Line for Teaching your Moves to an AI.
     
 ### Motivation
@@ -29,6 +29,6 @@
     5. If model is trained successfully, you will get perfomance metrics.
     6. Now an AI trained on your moves will start playing the moves.
     
-    
-    
-    
+### PS.
+    1. There is already recoreded data in the profile name of 'tasbir'.
+    2. Your can directly type the name while Testing the AI, and it will load data from the profile named 'tasbir'.
