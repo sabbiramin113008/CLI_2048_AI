@@ -163,16 +163,16 @@ def generator_seed():
 
 def populate_board(boards):
     null_cells = find_null_cells(boards)
-    print("Pre Board: {}".format(boards))
-    print("Null Cells are in: {}".format(null_cells))
-    print("Number of Null Cells: {}".format(len(null_cells)))
+    # print("Pre Board: {}".format(boards))
+    # print("Null Cells are in: {}".format(null_cells))
+    # print("Number of Null Cells: {}".format(len(null_cells)))
     if len(null_cells):
         status, pos = choose_position(null_cells)
         if status:
-            print("POS: {}".format(pos))
+            # print("POS: {}".format(pos))
             seed = generator_seed()
-            print("seed: {}".format(seed))
-            print("Selected Null Cell: {}".format(null_cells[pos]))
+            # print("seed: {}".format(seed))
+            # print("Selected Null Cell: {}".format(null_cells[pos]))
             x, y = null_cells[pos]
             boards[x][y] = seed
             return 1, boards
@@ -199,37 +199,4 @@ def record_moves(file_name, boards, move):
 
 
 def goto_sleep():
-    time.sleep(3)
-
-#
-# file_name = "sabbir"
-# move = "r"
-# record_moves(file_name, board, move)
-
-
-# print (populate_board(board))
-
-
-
-# print(find_null_cells(board))
-# x, y = (find_null_cells(board)[0])
-# print(x, y)
-
-
-
-
-# col_boards = (convert_to_columns(board))
-# print(convert_to_boards(col_boards))
-
-# board_up = board_move_up(board)
-# print(board_up)
-# print_board(board_up)
-
-# print_board(board_move_down(board))
-
-# print(board_move_left(board))
-# print (board_move_right(board))
-
-#
-# print(move_left(row_three))
-# print(move_right(row_four))
+    time.sleep(2)

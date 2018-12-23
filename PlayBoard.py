@@ -9,7 +9,6 @@ email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 from Moves import *
 from Train import *
 import time
-from Board import CheckerBoard
 
 if __name__ == "__main__":
     boards = [
@@ -86,10 +85,11 @@ if __name__ == "__main__":
             if flag:
                 temp = first_board
                 print_board(first_board)
-                for i in range(0, 20):
+                for i in range(0, 30):
+                    print("Move No: {}".format(str(i + 1)))
                     key_press = predict_move(boards=temp, scale=scale, profile_name=profile_name)
                     goto_sleep()
-                    print (key_press)
+                    print("AI Pressed : {}".format(key_press))
 
                     if key_press == 'u':
                         u_board = board_move_up(temp)
