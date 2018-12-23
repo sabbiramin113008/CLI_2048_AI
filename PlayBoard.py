@@ -17,7 +17,7 @@ if __name__ == "__main__":
         [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
-    message_choice = "Press\n 1 to Teaching the AI,\n 2 to Test your AI,\n 3. To Just Play\n  "
+    message_choice = "Press\n1 to Teach Your Moves To The AI,\n2 to Test your AI."
     choice = input(message_choice)
     if int(choice) == 1:
         u_name = input("Enter Your Name: ")
