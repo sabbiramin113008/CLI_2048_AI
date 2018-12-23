@@ -7,6 +7,7 @@ email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 """
 
 import pandas as pd
+from numpy import array
 import warnings
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -33,7 +34,7 @@ def train_model(profile_name):
 
         x_train = scale.transform(x_train)
         x_test = scale.transform(x_test)
-        
+
         print("Training started....")
 
         clf = MLP(
@@ -50,6 +51,19 @@ def train_model(profile_name):
         print("Model is Saved")
         predictions = clf.predict(x_test)
         msg = (classification_report(y_test, predictions))
-        return msg
+        return msg, scale
 
-# def predict_move(boards)
+
+def predict_move(boards, scale, profile_name):
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        cell_list = []
+        for x in range(0, 4):
+            for y in range(0, 4):
+                cell_list.append(boards[x][y])
+        row = [cell_list]
+        row = array(row)
+        row = scale.transform(row)
+        loaded_clf = joblib.load("{}.sav".format(profile_name))
+        predicted_move = loaded_clf.predict(row)
+        return predicted_move

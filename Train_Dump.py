@@ -41,19 +41,19 @@ with warnings.catch_warnings():
 
     print(type(x_train))
 
-    clf = MLP(
-        hidden_layer_sizes=(500, 50, 25, 10),
-        activation="relu",
-        solver="adam",
-        max_iter=1000000,
-        learning_rate_init=0.0001
-    )
-
-    clf.fit(x_train, y_train)
-    joblib.dump(clf, "{}.sav".format(file_name))
-    predictions = clf.predict(x_test)
-    msg = (classification_report(y_test, predictions))
-    print(msg)
+    # clf = MLP(
+    #     hidden_layer_sizes=(500, 50, 25, 10),
+    #     activation="relu",
+    #     solver="adam",
+    #     max_iter=1000000,
+    #     learning_rate_init=0.0001
+    # )
+    #
+    # clf.fit(x_train, y_train)
+    # joblib.dump(clf, "{}.sav".format(file_name))
+    # predictions = clf.predict(x_test)
+    # msg = (classification_report(y_test, predictions))
+    # print(msg)
 
     row = [[16, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0]]
     row = array(row)

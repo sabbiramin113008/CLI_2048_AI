@@ -7,6 +7,7 @@ email: sabbir@rokomari.com, sabbiramin.cse11ruet@gmail.com
 """
 import os
 import csv
+import time
 import codecs
 import random
 
@@ -195,6 +196,10 @@ def record_moves(file_name, boards, move):
 
     except FileNotFoundError:
         pass
+
+
+def goto_sleep():
+    time.sleep(3)
 
 #
 # file_name = "sabbir"
